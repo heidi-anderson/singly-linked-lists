@@ -1,0 +1,278 @@
+/** ***************************************************************************
+ * @file  
+ * @brief Contains the documentation for each member function in the 
+ *        sortedList class.
+ *****************************************************************************/
+
+/** ***************************************************************************
+ * @mainpage m0080 - Singly Linked List sorted integers
+ * 
+ * @section getting_started Getting Started
+ *
+ * @details
+ * 	Since you are reading this page you have already extracted the contents
+ *  of the m0080.zip files to your homework repository.
+ *  
+ *  You will now need to open the m0080.sln project and generate the
+ *  documentation for the sortedSingle class.  It is a singly linked list of
+ *  integers that are placed in order as items are to the list.  Make sure 
+ *  and add catch_amalgamated to your solution if it is not there.
+ *   
+ *  There are 3 parts to this assignment.  You must complete part a before
+ *  moving on to part b.  Just as part b must be completed before part c can
+ *  be graded.  Keep in mind that all three parts will be graded every time
+ *  you commit to gitlab with a [ci test].  With this in mind, if you are
+ *  on a function in part a, you can make it so part b does not pass.
+ *
+ *  As the project is already set up for you, you have the benefit of a
+ *  working class already provided for you in the dll.  As you write a function
+ *  in the sortedSingle.  The dll function will no longer work.  You can
+ *  always comment out your function to get back to using the dll version.
+ * 
+ *  To make sure that git does not upload the html file from doxygen, edit
+ *  your .gitignore file at the base of your repository.  Scroll to the bottom
+ *  of the page and add 2 astricks followed by /html/ on one line.  Save and 
+ *  exit this file.  I can not show the you line to add because doxygen treats
+ *  astericks differently.  If you remove the spaces your line would look
+ *  like ** /html/ .  This will prevent the html folder from being pushed to
+ *  your repository.
+ *
+ *  In order to write each function for each part you first will need to 
+ *  have a test case that fails to pass.  These test cases will be write 
+ *  in the file testcases.cpp.  If you do not have a test case that fails and 
+ *  you come to me for help, I will be unable to help you. You can follow the
+ *  links in each section below to get more information on each function.
+ *
+ *  Each function must have a testcase named after it.  Hence, find will have
+ *  a test case named find - TEST_CASE( "sortedSingle::find" )
+ *  
+ *  The only function that should allocate memory is the insert function.  
+ *  Any other allocations will be rejected until you fix it.
+ *
+ *  As you make commits you will use the same syntax as before when a multiple
+ *  part homework was assigned.
+ @verbatim
+   - part a
+   m0080 a - [ci test] - Message for what was fixed or coded.
+   m0080 a - [ci skip] - Message for what was fixed or coded.
+
+   - part b
+   m0080 b - [ci test] - Message for what was fixed or coded.
+   m0080 b - [ci skip] - Message for what was fixed or coded.
+
+   - part c
+   m0080 c - [ci test] - Message for what was fixed or coded.
+   m0080 c - [ci skip] - Message for what was fixed or coded.
+ @endverbatim
+ * @section example Example - write test case and skelton for constructor
+ * TestCases.cpp - This test case may pass because dll's initialize alot of 
+ *                 items to zeros for you.  You may also have to do the same
+ *                 for the destructor since we can not generate 
+ *                 a test case that would fail.
+ *
+ @verbatim
+ TEST_CASE("sortedSingle::sortedSingle - the constructor")
+ {
+     sortedList list1;
+     REQUIRE( list1.empty() == true);
+     REQUIRE( list1.size() == 0)
+ }
+ @endverbatim
+ * sortedSinglea.cpp
+ @verbatim
+ sortedSingle::sortedSingle()
+ {
+ }
+ @endverbatim
+ *
+ * At this point if you rebuild your solution and run the program you will 
+ * no longer be using the dll for the constructor.  If you get an error, that
+ * is ok. If you didn't, then pretend like you did for this section.  Since
+ * you have an error you may write code within the constructor to intialize 
+ * the data in the private section.
+ *
+ @verbatim
+ sortedSingle::sortedSingle()
+ {
+     headptr = nullptr;
+ }
+ @endverbatim
+ *
+ * Now rebuild you solution and run the program again.  If it passes, move on
+ * to the next function.  If you can, utilize other functions to solve
+ * problems be beware, if you call a function and later that function calls 
+ * yours, you will have a major problem.
+ *      
+ * @section parta Part A Must be completed before starting Part B
+ *  This Part of of the assignment will have you write 6 functions for the 
+ *  sortedSingle class.  The function definitions will be placed in the file
+ *  sortedSinglea.cpp.
+ *
+ *  - sortedSingle::sortedSingle() - the default constructor
+ *  - sortedSingle::~sortedSingle() - the destructor
+ *  - sortedSingle::empty()
+ *  - sortedSingle::size
+ *  - sortedSingle::find
+ *  - sortedSingle::retrievePosition
+ *
+ * @section partb Part B - Must be completed before starting Part C
+ *  This Part of of the assignment will have you write 2 functions for the 
+ *  sortedSingle class.  The function definitions will be placed in the file
+ *  sortedSingleb.cpp.
+ *
+ *  - sortedSingle::insert()
+ *  - sortedSingle::print()
+ *
+ * @section partc Part C - Due November 3 at 4:00pm
+ *  This Part of of the assignment will have you write 2 functions for the 
+ *  sortedSingle class.  The function definitions will be placed in the file
+ *  sortedSinglec.cpp.
+ *
+ *  - sortedSingle::remove()
+ *  - sortedSingle::clear()
+ *
+ * @section partd Part D - Not due for this class
+ * This section is not assigned.
+ *****************************************************************************/
+
+
+
+/**************************** part a ****************************************/
+/** ***************************************************************************
+ * @fn  sortedSingle::sortedSingle( )
+ *
+ * @brief   Default constructor, this will create an empty list by
+ *          initializing headptr.
+ *****************************************************************************/
+
+/** ***************************************************************************
+ * @fn  sortedSingle::~sortedSingle( )
+ *
+ * @brief   Destructor, this called when an object goes out of
+ *          scope and will free all nodes within the linked list.
+ *****************************************************************************/
+
+/** ***************************************************************************
+ * @fn  bool sortedSingle::empty( )
+ *
+ * @brief  Determins if the list contains any items or not.
+ *
+ * @returns True if the list is empty, false if it contains items.
+ *****************************************************************************/
+
+/** ***************************************************************************
+ * @fn  bool sortedSingle::find( int item )
+ *
+ * @brief   Searches for the first match
+ *
+ * @param   item  The item to locate within the list.
+ *
+ * @returns returns true if it finds the item in the list and false
+ *          if the item is not in the list.
+ *****************************************************************************/
+
+/** ***************************************************************************
+ * @fn  int sortedSingle::size( )
+ *
+ * @brief   Gets the number of nodes in the linked list.
+ *
+ * @returns the number of items in the list.
+ *****************************************************************************/
+
+/** ***************************************************************************
+ * @fn   int sortedSingle::retrievePosition( int item)
+ *
+ * @brief   Retrieves a position of the argument passed in.  It starts
+ *		    counting at 1.  If the item is not contained in the list, a zero
+ *          will be returned so you may test with true or false.
+ *
+ * @param   item  The item to locate within the list.
+ *
+ * @returns The position of the item within the list, zero if the item
+ *          is not located within the list.
+ *****************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+/**************************** part b ****************************************/
+
+/** ***************************************************************************
+ * @fn  bool sortedSingle::insert( int item )
+ *
+ * @brief   Inserts the request item into the linked list.  The list is 
+ *          sorted an the item will be placed into the correct position in
+ *          the list.
+ *
+ * @param   item    The data to be inserted.
+ *
+ * @returns True if it succeeds, false if it fails.
+ *****************************************************************************/
+
+
+/** ***************************************************************************
+ * @fn  void sortedSingle::print( ostream &out, string seperator )
+ *
+ * @brief   Displays the data to a stream with a given seperator used within
+ *          two pieces of data. The last item will not be folowed by the 
+ *          seperator.  Example "10, 20, 30, 40".  The seperator was a comma 
+ *          and a space ", " and was not used after the 40.
+ *
+ * @param [in,out]  out         The stream to print the data to.
+ * @param           seperator   The string that will be outputted between
+ *                              the data.
+ *****************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+/**************************** part c ****************************************/
+/** ***************************************************************************
+ * @fn  bool sortedSingle::remove( int item )
+ *
+ * @brief   Will remove the first instance of the item from the linked list.
+ *
+ * @param   item    The item to be removed from the list.
+ *
+ * @returns True if it succeeds, false if it fails.
+ *****************************************************************************/
+/** ***************************************************************************
+ * @fn  void sortedSingle::clear( )
+ *
+ * @brief   frees up all the node in the list.
+ *****************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+/**************************** part d ****************************************/
+
+/** ***************************************************************************
+ * @fn  sortedSingle::sortedSingle( sortedSingle &l )
+ *
+ * @brief   coming in a lecture near you.
+ *
+ * @param [in,out]  l   A sortedSingle list to process.
+ *****************************************************************************/
